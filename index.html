@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yuki Ichihara ‑ Research Portfolio" />
+  <title>Yuki Ichihara | Research Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      /* colour palette */
+      --primary: #1a237e;
+      --accent: #3949ab;
+      --bg: #f9f9fb;
+      --text: #212121;
+      --dark-bg: #0f0f10;
+      --dark-card: #1e1e1f;
+      --dark-text: #e0e0e0;
+      --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      --radius: 16px;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      line-height: 1.6;
+    }
+
+    body.dark {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      background: var(--gradient);
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px 160px;
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 115px;
+      background: var(--bg);
+      clip-path: polygon(0 0, 100% 100%, 100% 100%, 0 100%);
+    }
+
+    header img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.35);
+      object-fit: cover;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+      transition: transform 0.3s;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    header h1 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(2.2rem, 4vw + 1rem, 3.2rem);
+      margin: 0;
+    }
+
+    header p {
+      font-weight: 300;
+      margin: 8px 0 0;
+    }
+
+    /* toggle buttons */
+    .theme-toggle,
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      padding: 8px 14px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s;
+      backdrop-filter: blur(6px);
+    }
+
+    .theme-toggle {
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      padding: 0;
+    }
+
+    .lang-toggle {
+      right: 80px;
+      text-decoration: none;
+    }
+
+    .theme-toggle:hover,
+    .lang-toggle:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    /* ---------- Navigation ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      background: var(--bg);
+      padding: 0 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      z-index: 20;
+    }
+
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 14px 0;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* ---------- Sections & Cards ---------- */
+    section {
+      max-width: 1000px;
+      margin: 90px auto;
+      padding: 0 24px;
+    }
+
+    section h2 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.8rem, 2.2vw + 1rem, 2.4rem);
+      color: var(--primary);
+      margin: 0 0 48px;
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 90px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+    }
+
+    body.dark .card {
+      background: var(--dark-card);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    /* ---------- Publications ---------- */
+    .publication-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .publication-item {
+      margin-bottom: 1.6em;
+    }
+
+    .publication-title {
+      font-weight: 500;
+    }
+
+    .publication-venue {
+      color: var(--accent);
+    }
+
+    /* ---------- Misc ---------- */
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.6em;
+    }
+
+    footer {
+      background: var(--primary);
+      color: #c5cae9;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #e8eaf6;
+      text-decoration: none;
+    }
+
+    /* responsive image in contact */
+    a.inline-link {
+      color: var(--accent);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =================== HEADER =================== -->
+  <header>
+    <button class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-adjust"></i></button>
+    <a href="index.en.html" class="lang-toggle">English</a>
+
+    <img src="images/cat.JPG" alt="Profile photo of Yuki Ichihara" />
+    <h1>Yuki Ichihara</h1>
+    <p>Nara Institute of Science and Technology / Machine Learning Lab</p>
+  </header>
+
+  <!-- =================== NAVIGATION =================== -->
+  <nav>
+    <a href="#publications"><i class="fas fa-book"></i> Publications</a>
+    <!-- <a href="#research"><i class="fas fa-rocket"></i> Research</a> -->
+    <a href="#about"><i class="fas fa-user"></i> About</a>
+    <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+    <a href="#awards"><i class="fas fa-trophy"></i> Awards</a>
+    <a href="#internships"><i class="fas fa-briefcase"></i> Internships</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+
+  <!-- =================== PUBLICATIONS =================== -->
+  <section id="publications" class="card">
+    <h2>Publications</h2>
+    <ul class="publication-list">
+      <li class="publication-item">
+        <strong class="publication-title">A Policy Gradient Primal‑Dual Algorithm for Constrained MDPs with Uniform PAC Guarantees</strong><br />
+        <span class="publication-authors">Toshinori Kitamura, Tadashi Kozuno, Masahiro Kato, <b>Yuki Ichihara</b>, Soichiro Nishimori, Akiyoshi Sannai, Sho Sonoda, Wataru Kumagai, Yutaka Matsuo</span><br />
+        <span class="publication-venue">RLC Workshop 2024</span>
+      </li>
+      <li class="publication-item">
+        <strong class="publication-title">Evaluation of Best‑of‑N Sampling Strategies for Language Model Alignment</strong><br />
+        <span class="publication-authors"><b>Yuki Ichihara</b>, Yuu Jinnai, Tetsuro Morimura, Kenshi Abe, Kaito Ariu, Mitsuki Sakamoto, Eiji Uchibe</span><br />
+        <span class="publication-venue">Transactions on Machine Learning Research</span>
+      </li>
+      <li class="publication-item">
+        <strong class="publication-title">Theoretical Guarantees for Minimum Bayes Risk Decoding</strong><br />
+        <span class="publication-authors"><b>Yuki Ichihara</b>, Yuu Jinnai, Kaito Ariu, Tetsuro Morimura, Eiji Uchibe</span><br />
+        <span class="publication-venue">ACL 2025</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- =================== RESEARCH =================== -->
+  <!-- <section id="research" class="card">
+    <h2>Research</h2>
+    <p>My current research focuses on reinforcement learning algorithms for natural language processing, with particular interest in <em>minimum Bayes risk decoding</em>, constraint‑based optimisation, and dynamic reward shaping.</p>
+  </section> -->
+
+  <!-- =================== ABOUT / INTERESTS =================== -->
+  <section id="about" class="card">
+    <h2>Interests</h2>
+    <p>強化学習全般・自然言語処理の基礎研究など。</p>
+  </section>
+
+  <!-- =================== EDUCATION =================== -->
+  <section id="education" class="card">
+    <h2>Education</h2>
+    <ul>
+      <li>2025 年 4 月 — 現 在：<br /><strong>奈良先端科学技術大学院大学</strong>（博士課程）</li>
+      <li>2025 年 3 月：<br /><strong>奈良先端科学技術大学院大学</strong>（修士・工学）</li>
+      <li>2023 年 3 月：<br /><strong>東京理科大学</strong>（学士・電気工学）</li>
+    </ul>
+  </section>
+
+  <!-- =================== AWARDS =================== -->
+  <section id="awards" class="card">
+    <h2>Awards &amp; Scholarships</h2>
+    <ul>
+      <li>優秀論文賞 — 言語処理学会 2025</li>
+      <li>JST SPRING Fellowship（2025–2028）</li>
+      <li>NAIST 学費全額免除（2024–2028）</li>
+    </ul>
+  </section>
+
+  <!-- =================== INTERNSHIPS =================== -->
+  <section id="internships" class="card">
+    <h2>Internships</h2>
+    <ul>
+      <li><i class="fas fa-building"></i> マイナビ — 2022.06 – 2022.07</li>
+      <li><i class="fas fa-building"></i> AIST — 2022.08 – 2022.12</li>
+      <li><i class="fas fa-building"></i> ATR — 2023.04 – Present</li>
+      <li><i class="fas fa-building"></i> CyberAgent AI Lab — 2024.04 – Present</li>
+    </ul>
+  </section>
+
+  <!-- =================== CONTACT =================== -->
+  <section id="contact" class="card">
+    <h2>Contact</h2>
+    <p><i class="fas fa-envelope"></i> <a class="inline-link" href="mailto:y.ichihara3406@gmail.com">y.ichihara3406@gmail.com</a></p>
+    <p><i class="fab fa-github"></i> <a class="inline-link" href="https://github.com/yu-ki3406" target="_blank" rel="noopener">github.com/yu-ki3406</a></p>
+  </section>
+
+  <!-- =================== FOOTER =================== -->
+  <footer>
+    © 2025 Yuki Ichihara — All Rights Reserved.
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // dark‑mode toggle
+    const themeBtn = document.querySelector('.theme-toggle');
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const icon = themeBtn.querySelector('i');
+      icon.classList.toggle('fa-adjust');
+      icon.classList.toggle('fa-sun');
+    });
+  </script>
+</body>
+</html>

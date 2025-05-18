@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Reinforcement Learning Tips | Yuki Ichihara Blog</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1a237e;
+      --accent: #3949ab;
+      --bg: #f9f9fb;
+      --text: #212121;
+      --dark-bg: #121212;
+      --dark-text: #e0e0e0;
+    }
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.8;
+    }
+    header, nav, footer { /* reuse homepage styles */ }
+    .post-container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .post-header h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.8rem;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+    .post-meta {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .post-content p {
+      margin-bottom: 20px;
+    }
+    .post-content ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    .post-content pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-family: monospace;
+      margin-bottom: 20px;
+    }
+    .post-content a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .post-content a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダーとナビを homepage と同じにする -->
+  <!-- <header>
+    <img src="../images/profile.jpg" alt="Profile" style="width:120px; border-radius:50%; margin-top:20px;">
+    <h1 style="font-family:'Merriweather', serif; color:#fff;">Yuki Ichihara</h1>
+    <p style="color:#ddd;">Nara Institute of Science and Technology</p>
+  </header> -->
+  <nav style="background:#fff;">  <!-- コピー済みナビ -->
+    <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+    <!-- <a href="../blog/index.html"><i class="fas fa-blog"></i> Blog</a> -->
+    <!-- 他メニュー -->
+  </nav>
+
+  <div class="post-container">
+    <header class="post-header">
+      <h1>Deep Reinforcement Learning Tips</h1>
+      <div class="post-meta">公開日: <time datetime="2025-04-10">2025-04-10</time> | カテゴリ: <a href="#">Reinforcement Learning</a></div>
+    </header>
+    <article class="post-content">
+      <p>最近の研究成果をもとに、効率的なサンプル収集方法を解説します。</p>
+      <ul>
+        <li>はじめに：強化学習におけるサンプル効率とは</li>
+        <li>サンプル収集のコツ：探索戦略とリプレイバッファの活用</li>
+        <li>実験結果の比較：従来手法との性能差</li>
+        <li>まとめ：今後の展望と課題</li>
+      </ul>
+      <pre><code>def collect_samples(env, policy, buffer, steps):
+    for _ in range(steps):
+        state = env.reset()
+        action = policy(state)
+        next_state, reward, done, _ = env.step(action)
+        buffer.add(state, action, reward, next_state)
+</code></pre>
+      <p>上記コードはサンプル収集の基本フローです。バッファへの追加時に優先度を考慮するとさらに効率的です。</p>
+    </article>
+  </div>
+
+  <footer>
+    &copy; 2025 Yuki Ichihara. All rights reserved.
+  </footer>
+</body>
+</html>
