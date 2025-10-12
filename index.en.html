@@ -113,8 +113,16 @@
     .pdf-embed{width:120px;height:120px;border-radius:10px;border:1px solid rgba(100,116,139,.25);display:block;background:#fff}
     object.pdf-embed{pointer-events:none}
     @media (max-width: 640px){
-      .pub{grid-template-columns:1fr}
-      .pub-actions{justify-content:flex-start}
+      .hero{grid-template-columns:72px 1fr; gap:12px}
+      .avatar{width:72px;height:72px}
+      .titles h1{font-size:clamp(1.4rem,5.5vw,1.8rem)}
+      .titles p{font-size:.9rem}
+      .tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:8px 10px}
+      .tab{flex:0 0 auto}
+      .pub{grid-template-columns:80px 1fr}
+      .pub-thumb{width:80px;height:80px}
+      .pdf-embed{width:80px;height:80px}
+      .pub-actions{grid-column:1 / -1;justify-content:flex-start;margin-top:6px}
     }
 
     /* Two-column */
@@ -170,7 +178,7 @@
         <!-- 1 -->
         <li class="pub" data-type="conference">
           <div>
-            <img class="pub-thumb" src="figs/uniform.png" alt="Thumbnail for constrained MDPs paper" onerror="this.style.display='none'" />
+            <img class="pub-thumb" src="figs/uniform.png" alt="Thumbnail for constrained MDPs paper" loading="lazy" onerror="this.style.display='none'" />
           </div>
           <div>
             <div class="pub-title">A Policy Gradient Primal‑Dual Algorithm for Constrained MDPs with Uniform PAC Guarantees</div>
@@ -194,7 +202,7 @@
         <!-- 2 -->
         <li class="pub" data-type="journal">
           <a href="https://doi.org/10.48550/arXiv.2502.12668" target="_blank" rel="noopener" aria-label="Open paper">
-            <img class="pub-thumb" src="figs/eval.png" alt="Thumbnail for Best-of-N paper" onerror="this.style.display='none'" />
+            <img class="pub-thumb" src="figs/eval.png" alt="Thumbnail for Best-of-N paper" loading="lazy" onerror="this.style.display='none'" />
           </a>
           <div>
             <div class="pub-title">Evaluation of Best‑of‑N Sampling Strategies for Language Model Alignment</div>
@@ -218,7 +226,7 @@
         <!-- 3 -->
         <li class="pub" data-type="conference">
           <a href="https://doi.org/10.48550/arXiv.2502.12685" target="_blank" rel="noopener" aria-label="Open paper">
-            <img class="pub-thumb" src="figs/mbr.png" alt="Thumbnail for MBR guarantees paper" onerror="this.style.display='none'" />
+            <img class="pub-thumb" src="figs/mbr.png" alt="Thumbnail for MBR guarantees paper" loading="lazy" onerror="this.style.display='none'" />
           </a>
           <div>
             <div class="pub-title">Theoretical Guarantees for Minimum Bayes Risk Decoding</div>
@@ -255,7 +263,7 @@
         <!-- 4 -->
         <li class="pub" data-type="conference">
           <a href="#" aria-label="Paper thumbnail">
-            <img class="pub-thumb" src="figs/aw-grpo.png" alt="Thumbnail for AW-GRPO paper" onerror="this.style.display='none'" />
+            <img class="pub-thumb" src="figs/aw-grpo.png" alt="Thumbnail for AW-GRPO paper" loading="lazy" onerror="this.style.display='none'" />
           </a>
           <div>
             <div class="pub-title">Auto-Weighted Group Relative Preference Optimization for Multi-Objective Text Generation Tasks</div>
@@ -276,7 +284,7 @@
         <!-- 5 -->
         <li class="pub" data-type="preprint">
           <a href="https://doi.org/10.48550/arXiv.2509.22047" target="_blank" rel="noopener" aria-label="Open paper">
-            <img class="pub-thumb" src="figs/mo-grpo.png" alt="Thumbnail for MO-GRPO preprint" onerror="this.style.display='none'" />
+            <img class="pub-thumb" src="figs/mo-grpo.png" alt="Thumbnail for MO-GRPO preprint" loading="lazy" onerror="this.style.display='none'" />
           </a>
           <div>
             <div class="pub-title">MO‑GRPO: Mitigating Reward Hacking of Group Relative Policy Optimization on Multi‑Objective Problems</div>
