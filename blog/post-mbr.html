@@ -1,111 +1,144 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deep Reinforcement Learning Tips | Yuki Ichihara Blog</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary: #1a237e;
-      --accent: #3949ab;
-      --bg: #f9f9fb;
-      --text: #212121;
-      --dark-bg: #121212;
-      --dark-text: #e0e0e0;
-    }
-    body {
-      margin: 0; padding: 0;
-      font-family: 'Roboto', sans-serif;
-      background: var(--bg); color: var(--text);
-      line-height: 1.8;
-    }
-    header, nav, footer { /* reuse homepage styles */ }
-    .post-container {
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-    .post-header h1 {
-      font-family: 'Merriweather', serif;
-      font-size: 2.8rem;
-      margin-bottom: 8px;
-      color: var(--primary);
-    }
-    .post-meta {
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 30px;
-    }
-    .post-content p {
-      margin-bottom: 20px;
-    }
-    .post-content ul {
-      margin-left: 20px;
-      margin-bottom: 20px;
-    }
-    .post-content pre {
-      background: #272822;
-      color: #f8f8f2;
-      padding: 16px;
-      border-radius: 6px;
-      overflow-x: auto;
-      font-family: monospace;
-      margin-bottom: 20px;
-    }
-    .post-content a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .post-content a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="A practical explanation of Minimum Bayes Risk decoding and why it matters for language model inference."
+  />
+  <title>MBR Decoding Explained | Yuki Ichihara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../site.css" />
 </head>
 <body>
-  <!-- ヘッダーとナビを homepage と同じにする -->
-  <!-- <header>
-    <img src="../images/profile.jpg" alt="Profile" style="width:120px; border-radius:50%; margin-top:20px;">
-    <h1 style="font-family:'Merriweather', serif; color:#fff;">Yuki Ichihara</h1>
-    <p style="color:#ddd;">Nara Institute of Science and Technology</p>
-  </header> -->
-  <nav style="background:#fff;">  <!-- コピー済みナビ -->
-    <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-    <!-- <a href="../blog/index.html"><i class="fas fa-blog"></i> Blog</a> -->
-    <!-- 他メニュー -->
-  </nav>
+  <header class="site-header">
+    <div class="shell site-header-inner">
+      <a class="brand" href="../index.en.html" aria-label="Yuki Ichihara home">
+        <span class="brand-mark">YI</span>
+        <span class="brand-copy">
+          <strong>Yuki Ichihara</strong>
+          <span>Personal academic homepage</span>
+        </span>
+      </a>
+      <nav class="site-nav" data-nav aria-label="Primary navigation">
+        <a href="../index.en.html#about">About</a>
+        <a href="../index.en.html#news">News</a>
+        <a href="../index.en.html#work">Publications</a>
+        <a href="../index.en.html#timeline">Background</a>
+        <a href="../index.en.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="post-container">
-    <header class="post-header">
-      <h1>Deep Reinforcement Learning Tips</h1>
-      <div class="post-meta">公開日: <time datetime="2025-04-10">2025-04-10</time> | カテゴリ: <a href="#">Reinforcement Learning</a></div>
-    </header>
-    <article class="post-content">
-      <p>最近の研究成果をもとに、効率的なサンプル収集方法を解説します。</p>
+  <main class="article-shell">
+    <article class="article-card" data-reveal>
+      <a class="article-back" href="index.html">Back to notes</a>
+      <span class="eyebrow" style="margin-top: 20px;">Decoding note</span>
+      <h1>MBR Decoding Explained</h1>
+      <div class="meta-list">
+        <span class="tag">2025-03-15</span>
+        <span class="tag">Minimum Bayes Risk</span>
+        <span class="tag">Language model inference</span>
+      </div>
+      <p class="page-lead" style="margin-bottom: 22px;">
+        Companion note to
+        <a href="https://aclanthology.org/2025.acl-long.793/" target="_blank" rel="noopener">
+          Theoretical Guarantees for Minimum Bayes Risk Decoding
+        </a>.
+      </p>
+
+      <p>
+        Minimum Bayes Risk (MBR) decoding replaces the single highest-probability candidate
+        with the candidate that performs best under an expected utility criterion. In simpler
+        terms, it asks which output still looks good when compared against a set of alternatives.
+      </p>
+
+      <h2>The core idea</h2>
+      <p>
+        Given candidate outputs <span class="mono">y_1, ..., y_n</span>, MBR chooses the one
+        with the largest average utility against a reference set. A rough implementation looks
+        like this:
+      </p>
+
+      <pre><code>def mbr_decode(candidates, utility):
+    best_score = float("-inf")
+    best_candidate = None
+
+    for candidate in candidates:
+        score = 0.0
+        for reference in candidates:
+            score += utility(candidate, reference)
+
+        if score > best_score:
+            best_score = score
+            best_candidate = candidate
+
+    return best_candidate</code></pre>
+
+      <p>
+        The real decisions are hidden in <span class="mono">candidates</span> and
+        <span class="mono">utility</span>. Candidate quality depends on how you sample, while
+        the utility function encodes what "good" means. BLEU-style overlap, model-based
+        metrics, and learned judges all lead to very different behaviors.
+      </p>
+
+      <h2>Why it matters</h2>
+      <p>
+        MBR often works well because it rewards candidates that are centrally located with
+        respect to the candidate set. This is especially helpful when the highest-probability
+        sample is brittle, overly generic, or locally attractive but globally poor.
+      </p>
+
       <ul>
-        <li>はじめに：強化学習におけるサンプル効率とは</li>
-        <li>サンプル収集のコツ：探索戦略とリプレイバッファの活用</li>
-        <li>実験結果の比較：従来手法との性能差</li>
-        <li>まとめ：今後の展望と課題</li>
+        <li>It can reduce unlucky single-sample failures at inference time.</li>
+        <li>It makes test-time compute explicit instead of hiding it inside larger models.</li>
+        <li>It gives a clean lens on how utility design shapes final outputs.</li>
       </ul>
-      <pre><code>def collect_samples(env, policy, buffer, steps):
-    for _ in range(steps):
-        state = env.reset()
-        action = policy(state)
-        next_state, reward, done, _ = env.step(action)
-        buffer.add(state, action, reward, next_state)
-</code></pre>
-      <p>上記コードはサンプル収集の基本フローです。バッファへの追加時に優先度を考慮するとさらに効率的です。</p>
-    </article>
-  </div>
 
-  <footer>
-    &copy; 2025 Yuki Ichihara. All rights reserved.
+      <h2>Where the cost comes from</h2>
+      <p>
+        The downside is computation. If you compare every candidate against every other
+        candidate, the cost grows quadratically with the set size. In practice, you often need
+        to balance three knobs:
+      </p>
+
+      <ol>
+        <li>The number of candidates you draw.</li>
+        <li>The quality and cost of the utility metric.</li>
+        <li>The latency budget you can tolerate at deployment time.</li>
+      </ol>
+
+      <p>
+        This is exactly why theoretical analysis matters. It tells us whether increasing the
+        candidate pool is buying real improvement or just burning more inference budget.
+      </p>
+
+      <h2>A useful mental model</h2>
+      <p>
+        I like to think of MBR as turning inference into a committee decision. MAP decoding
+        picks the most likely speaker. MBR asks the entire room which candidate best agrees
+        with the collective structure induced by the utility function.
+      </p>
+
+      <p>
+        If you want the formal version of this story, see the ACL paper
+        <a href="https://aclanthology.org/2025.acl-long.793/" target="_blank" rel="noopener">
+          Theoretical Guarantees for Minimum Bayes Risk Decoding
+        </a>.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer shell">
+    <small>&copy; 2026 Yuki Ichihara.</small>
   </footer>
+
+  <script src="../site.js"></script>
 </body>
 </html>
