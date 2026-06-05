@@ -5,370 +5,240 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Yuki Ichihara's personal academic homepage with publications and background information."
+    content="Yuki Ichihara's academic homepage with publications, background, and contact information."
   />
   <title>Yuki Ichihara</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
   <link rel="stylesheet" href="site.css" />
   <meta property="og:title" content="Yuki Ichihara" />
   <meta
     property="og:description"
-    content="Personal academic homepage with publications on language model alignment, decoding, and reinforcement learning."
+    content="Academic homepage with publications on language model alignment, decoding, and reinforcement learning."
   />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://yu-ki3406.github.io/ichihara/images/site-og.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://yu-ki3406.github.io/ichihara/images/site-og.png" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Yuki Ichihara",
-      "jobTitle": "Ph.D. Student",
-      "affiliation": {
-        "@type": "Organization",
-        "name": "Nara Institute of Science and Technology"
-      },
-      "email": "mailto:y.ichihara3406@gmail.com",
-      "image": "images/cat.JPG",
-      "url": "https://yu-ki3406.github.io/ichihara/",
-      "sameAs": [
-        "https://github.com/yu-ki3406",
-        "https://scholar.google.com/citations?user=qexbctUAAAAJ&hl=en"
-      ],
-      "hasPart": [
-        {
-          "@type": "ScholarlyArticle",
-          "name": "Consensus Group Relative Policy Optimization for Text Generation",
-          "author": ["Yuki Ichihara", "Yuu Jinnai", "Kaito Ariu", "Eiji Uchibe"],
-          "url": "https://arxiv.org/abs/2602.03102",
-          "datePublished": "2026"
-        },
-        {
-          "@type": "ScholarlyArticle",
-          "name": "MO-GRPO: Mitigating Reward Hacking of Group Relative Policy Optimization on Multi-Objective Problems",
-          "author": ["Yuki Ichihara", "Yuu Jinnai", "Tetsuro Morimura", "Mitsuki Sakamoto", "Ryota Mitsuhashi", "Eiji Uchibe"],
-          "url": "https://doi.org/10.48550/arXiv.2509.22047",
-          "datePublished": "2025"
-        },
-        {
-          "@type": "ScholarlyArticle",
-          "name": "Auto-Weighted Group Relative Preference Optimization for Multi-Objective Text Generation Tasks",
-          "author": ["Yuki Ichihara", "Yuu Jinnai"],
-          "url": "https://aclanthology.org/2025.emnlp-industry.80/",
-          "isPartOf": {
-            "@type": "ConferenceSeries",
-            "name": "EMNLP 2025 Industry Track"
-          },
-          "datePublished": "2025"
-        },
-        {
-          "@type": "ScholarlyArticle",
-          "name": "Theoretical Guarantees for Minimum Bayes Risk Decoding",
-          "author": ["Yuki Ichihara", "Yuu Jinnai", "Kaito Ariu", "Tetsuro Morimura", "Eiji Uchibe"],
-          "url": "https://aclanthology.org/2025.acl-long.793/",
-          "isPartOf": {
-            "@type": "ConferenceSeries",
-            "name": "ACL 2025"
-          },
-          "datePublished": "2025"
-        },
-        {
-          "@type": "ScholarlyArticle",
-          "name": "Evaluation of Best-of-N Sampling Strategies for Language Model Alignment",
-          "author": ["Yuki Ichihara", "Yuu Jinnai", "Tetsuro Morimura", "Kenshi Abe", "Kaito Ariu", "Mitsuki Sakamoto", "Eiji Uchibe"],
-          "url": "https://doi.org/10.48550/arXiv.2502.12668",
-          "isPartOf": {
-            "@type": "Periodical",
-            "name": "Transactions on Machine Learning Research"
-          },
-          "datePublished": "2025"
-        }
-      ]
-    }
-  </script>
 </head>
 <body>
   <header class="site-header">
-    <div class="shell site-header-inner">
-      <a class="brand" href="index.en.html" aria-label="Yuki Ichihara home">
-        <span class="brand-mark">YI</span>
-        <span class="brand-copy">
-          <strong>Yuki Ichihara</strong>
-          <span>Personal academic homepage</span>
-        </span>
-      </a>
-      <nav class="site-nav" data-nav aria-label="Primary navigation">
-        <a href="index.en.html#about">About</a>
-        <a href="index.en.html#news">News</a>
-        <a href="index.en.html#work">Publications</a>
-        <a href="index.en.html#timeline">Background</a>
-        <a href="index.en.html#contact">Contact</a>
+    <div class="shell header-row">
+      <a class="site-title" href="index.en.html">Yuki Ichihara</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#background">Background</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section id="about" class="hero">
-      <div class="shell about-layout">
-        <div class="about-main" data-reveal>
-          <h1>Yuki Ichihara</h1>
-          <!-- <p class="hero-subtitle">Ph.D. Student, Nara Institute of Science and Technology</p> -->
-          <p class="hero-links">
-            <a class="inline-link" href="mailto:y.ichihara3406@gmail.com">Email</a>
-            <span>/</span>
-            <a class="inline-link" href="https://scholar.google.com/citations?user=qexbctUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-            <span>/</span>
-            <a class="inline-link" href="https://github.com/yu-ki3406" target="_blank" rel="noopener">GitHub</a>
-          </p>
-          <p class="lead" style="margin-top: 12px;">
-            Starting in Aug 2026, I will join MBZUAI as a Ph.D. student, supervised by Junpei Komiyama.
-          </p>
-          <p class="lead" style="margin-top: 12px;">
-            My recent interests include Best-of-N and Minimum Bayes Risk decoding, alignment
-            under multiple objectives, and theoretical questions that help explain practical
-            generation behavior.
-          </p>
-        </div>
+  <main class="shell">
+    <section class="intro">
+      <div>
+        <h1>Yuki Ichihara</h1>
+        <p>
+          Starting in Aug 2026, I will join MBZUAI as a Ph.D. student,
+          supervised by Junpei Komiyama.
+        </p>
+        <p>
+          My interests include Best-of-N and Minimum Bayes Risk decoding,
+          language model alignment, and RL-based fine-tuning methods.
+        </p>
+        <p class="link-row">
+          <a href="mailto:y.ichihara3406@gmail.com">Email</a>
+          <a href="https://scholar.google.com/citations?user=qexbctUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://github.com/yu-ki3406" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+      <img class="portrait" src="images/cat.JPG" alt="Profile photo" />
+    </section>
 
-        <aside class="about-side" data-reveal>
-          <div class="portrait portrait-academic">
-            <img src="images/cat.JPG" alt="Profile photo" />
-          </div>
-        </aside>
+    <section id="news">
+      <h2>News</h2>
+      <div class="dated-list">
+        <p>
+          <time>Aug 2026</time>
+          I will join MBZUAI as a Ph.D. student, supervised by Junpei Komiyama.
+        </p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="shell note-banner" data-reveal>
-        <strong style="display: block; margin-bottom: 8px;">Research Interests</strong>
-        Reinforcement learning for language models, alignment, decoding, reward design,
-        evaluation, and multi-objective generation.
-      </div>
+    <section id="publications">
+      <h2>Publications</h2>
+      <ol class="publication-list">
+        <li>
+          <span class="publication-title">
+            Reliable Chain-of-Thought via Prefix Consistency
+          </span>
+          <span class="publication-meta">
+            N. Iwase, <strong>Y. Ichihara</strong>, M. A. Quamar, J. Komiyama.
+            <em>arXiv preprint</em>, 2026.
+          </span>
+          <span class="publication-links">
+            <a href="https://arxiv.org/abs/2605.07654" target="_blank" rel="noopener">Paper</a>
+            <a href="https://github.com/naoto-iwase/prefix-consistency" target="_blank" rel="noopener">Code</a>
+          </span>
+        </li>
+        <li>
+          <span class="publication-title">
+            CITE: Anytime-Valid Statistical Inference in LLM Self-Consistency
+          </span>
+          <span class="publication-meta">
+            H. Ota, N. Iwase, <strong>Y. Ichihara</strong>, J. Komiyama, M. Imaizumi.
+            <em>arXiv preprint</em>, 2026.
+          </span>
+          <span class="publication-links">
+            <a href="https://arxiv.org/abs/2605.05873" target="_blank" rel="noopener">Paper</a>
+          </span>
+        </li>
+        <li>
+          <span class="publication-title">
+            Consensus Group Relative Policy Optimization for Text Generation
+          </span>
+          <span class="publication-meta">
+            <strong>Y. Ichihara</strong>, Y. Jinnai, K. Ariu, E. Uchibe.
+            <em>Workshop at ACL</em>, 2026.
+          </span>
+          <span class="publication-links">
+            <a href="https://arxiv.org/abs/2602.03102" target="_blank" rel="noopener">Paper</a>
+            <a href="https://github.com/CyberAgentAILab/Consensus-GRPO" target="_blank" rel="noopener">Code</a>
+          </span>
+        </li>
+        <li>
+          <span class="publication-title">
+            MO-GRPO: Mitigating Reward Hacking of Group Relative Policy Optimization on Multi-Objective Problems
+          </span>
+          <span class="publication-meta">
+            <strong>Y. Ichihara</strong>, Y. Jinnai, T. Morimura, M. Sakamoto, R. Mitsuhashi, E. Uchibe.
+            <em>arXiv preprint</em>, 2025.
+          </span>
+          <span class="publication-links">
+            <a href="https://doi.org/10.48550/arXiv.2509.22047" target="_blank" rel="noopener">Paper</a>
+            <a href="https://github.com/CyberAgentAILab/MO-GRPO" target="_blank" rel="noopener">Code</a>
+          </span>
+        </li>
+        <li>
+          <span class="publication-title">
+            Auto-Weighted Group Relative Preference Optimization for Multi-Objective Text Generation Tasks
+          </span>
+          <span class="publication-meta">
+            <strong>Y. Ichihara</strong>, Y. Jinnai.
+            <em>EMNLP Industry Track</em>, 2025.
+          </span>
+          <span class="publication-links">
+            <a href="https://aclanthology.org/2025.emnlp-industry.80/" target="_blank" rel="noopener">Paper</a>
+            <a href="https://github.com/CyberAgentAILab/AW-GRPO" target="_blank" rel="noopener">Code</a>
+          </span>
+        </li>
+        <li>
+          <span class="publication-title">
+            Theoretical Guarantees for Minimum Bayes Risk Decoding
+          </span>
+          <span class="publication-meta">
+            <strong>Y. Ichihara</strong>, Y. Jinnai, K. Ariu, T. Morimura, E. Uchibe.
+            <em>ACL</em>, 2025.
+          </span>
+          <span class="publication-links">
+            <a href="https://aclanthology.org/2025.acl-long.793/" target="_blank" rel="noopener">Paper</a>
+          </span>
+        </li>
+        <li>
+          <span class="publication-title">
+            Evaluation of Best-of-N Sampling Strategies for Language Model Alignment
+          </span>
+          <span class="publication-meta">
+            <strong>Y. Ichihara</strong>, Y. Jinnai, T. Morimura, K. Abe, K. Ariu, M. Sakamoto, E. Uchibe.
+            <em>Transactions on Machine Learning Research</em>, 2025.
+          </span>
+          <span class="publication-links">
+            <a href="https://doi.org/10.48550/arXiv.2502.12668" target="_blank" rel="noopener">Paper</a>
+          </span>
+        </li>
+        <li>
+          <span class="publication-title">
+            A Policy Gradient Primal-Dual Algorithm for Constrained MDPs with Uniform PAC Guarantees
+          </span>
+          <span class="publication-meta">
+            T. Kitamura, T. Kozuno, M. Kato, <strong>Y. Ichihara</strong>, S. Nishimori,
+            A. Sannai, S. Sonoda, W. Kumagai, Y. Matsuo.
+            <em>RLSW</em>, 2024.
+          </span>
+          <span class="publication-links">
+            <a href="https://arxiv.org/abs/2401.17780" target="_blank" rel="noopener">Paper</a>
+          </span>
+        </li>
+      </ol>
     </section>
 
-    <section id="news" class="section">
-      <div class="shell">
-        <div class="section-heading" data-reveal>
-          <div>
-            <h2>News</h2>
+    <section id="background">
+      <h2>Background</h2>
+      <div class="two-column">
+        <div>
+          <h3>Education</h3>
+          <div class="dated-list">
+            <p>
+              <time>Aug 2026 -</time>
+              MBZUAI, Ph.D. (incoming), supervised by Junpei Komiyama
+            </p>
+            <p>
+              <time>2025 - 2026</time>
+              Nara Institute of Science and Technology, Ph.D. program in Engineering
+              (withdrew to re-enroll at MBZUAI)
+            </p>
+            <p>
+              <time>2025</time>
+              Nara Institute of Science and Technology, M.S. in Engineering
+            </p>
+            <p>
+              <time>2023</time>
+              Tokyo University of Science, B.S. in Electrical Engineering
+            </p>
           </div>
         </div>
-        <div class="news-table" data-reveal>
-          <div class="news-row">
-            <time>Aug 2026</time>
-            <div>I will join MBZUAI as a Ph.D. student, supervised by Junpei Komiyama.</div>
+        <div>
+          <h3>Research Experience</h3>
+          <div class="dated-list">
+            <p>
+              <time>2025 - 2026</time>
+              JST SPRING Fellowship, Doctoral fellowship
+            </p>
+            <p>
+              <time>2024 - 2026</time>
+              CyberAgent AI Lab, Research Intern
+            </p>
+            <p>
+              <time>2023 - 2026</time>
+              ATR, Research Assistant
+            </p>
+            <p>
+              <time>2023</time>
+              AIST, Research Assistant
+            </p>
           </div>
-          <div class="news-row">
-            <time>Apr - May 2026</time>
-            <div>I joined MBZUAI as a Visiting Student.</div>
-          </div>
-          <div class="news-row">
-            <time>Feb 2026</time>
-            <div>Consensus Group Relative Policy Optimization for Text Generation was posted on arXiv.</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="work" class="section">
-      <div class="shell">
-        <div class="section-heading" data-reveal>
-          <div>
-            <h2>Selected Publications</h2>
+          <h3>Reviewing</h3>
+          <div class="dated-list">
+            <p>
+              <time>2026</time>
+              Reviewer, ARR; ICML (nominated as Gold Reviewer)
+            </p>
           </div>
-        </div>
-        <ol class="pub-list" data-reveal>
-          <li class="pub-entry">
-            <div class="pub-entry-title">
-              Consensus Group Relative Policy Optimization for Text Generation
-            </div>
-            <div class="pub-entry-authors">
-              <strong>Y. Ichihara</strong>, Y. Jinnai, K. Ariu, E. Uchibe
-            </div>
-            <div class="pub-entry-venue"><em>arXiv preprint</em>, 2026</div>
-            <div class="pub-actions">
-              <a class="pub-link" href="https://arxiv.org/abs/2602.03102" target="_blank" rel="noopener">Paper</a>
-              <a class="pub-link" href="https://github.com/CyberAgentAILab/Consensus-GRPO" target="_blank" rel="noopener">Code</a>
-            </div>
-          </li>
-          <li class="pub-entry">
-            <div class="pub-entry-title">
-              MO-GRPO: Mitigating Reward Hacking of Group Relative Policy Optimization on Multi-Objective Problems
-            </div>
-            <div class="pub-entry-authors">
-              <strong>Y. Ichihara</strong>, Y. Jinnai, T. Morimura, M. Sakamoto, R. Mitsuhashi, E. Uchibe
-            </div>
-            <div class="pub-entry-venue"><em>arXiv preprint</em>, 2025</div>
-            <div class="pub-actions">
-              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2509.22047" target="_blank" rel="noopener">Paper</a>
-              <a class="pub-link" href="https://github.com/CyberAgentAILab/MO-GRPO" target="_blank" rel="noopener">Code</a>
-            </div>
-          </li>
-          <li class="pub-entry">
-            <div class="pub-entry-title">
-              Auto-Weighted Group Relative Preference Optimization for Multi-Objective Text Generation Tasks
-            </div>
-            <div class="pub-entry-authors">
-              <strong>Y. Ichihara</strong>, Y. Jinnai
-            </div>
-            <div class="pub-entry-venue"><em>EMNLP Industry Track</em>, 2025</div>
-            <div class="pub-actions">
-              <a class="pub-link" href="https://aclanthology.org/2025.emnlp-industry.80/" target="_blank" rel="noopener">Paper</a>
-              <a class="pub-link" href="https://github.com/CyberAgentAILab/AW-GRPO" target="_blank" rel="noopener">Code</a>
-            </div>
-          </li>
-          <li class="pub-entry">
-            <div class="pub-entry-title">
-              Theoretical Guarantees for Minimum Bayes Risk Decoding
-            </div>
-            <div class="pub-entry-authors">
-              <strong>Y. Ichihara</strong>, Y. Jinnai, K. Ariu, T. Morimura, E. Uchibe
-            </div>
-            <div class="pub-entry-venue"><em>ACL</em>, 2025</div>
-            <div class="pub-actions">
-              <a class="pub-link" href="https://aclanthology.org/2025.acl-long.793/" target="_blank" rel="noopener">Paper</a>
-            </div>
-          </li>
-          <li class="pub-entry">
-            <div class="pub-entry-title">
-              Evaluation of Best-of-N Sampling Strategies for Language Model Alignment
-            </div>
-            <div class="pub-entry-authors">
-              <strong>Y. Ichihara</strong>, Y. Jinnai, T. Morimura, K. Abe, K. Ariu, M. Sakamoto, E. Uchibe
-            </div>
-            <div class="pub-entry-venue"><em>Transactions on Machine Learning Research</em>, 2025</div>
-            <div class="pub-actions">
-              <a class="pub-link" href="https://doi.org/10.48550/arXiv.2502.12668" target="_blank" rel="noopener">Paper</a>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="timeline" class="section">
-      <div class="shell">
-        <div class="section-heading" data-reveal>
-          <div>
-            <h2>Background</h2>
-          </div>
-        </div>
-        <div class="grid-2">
-          <article class="timeline-card" data-reveal>
-            <h3>Education</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <time>Aug 2026 -</time>
-                <div>
-                  <strong>MBZUAI</strong>
-                  Ph.D. (incoming), supervised by Junpei Komiyama
-                </div>
-              </div>
-              <div class="timeline-item">
-                <time>2025 - present</time>
-                <div>
-                  <strong>Nara Institute of Science and Technology</strong>
-                  Ph.D. in Engineering
-                </div>
-              </div>
-              <div class="timeline-item">
-                <time>2025</time>
-                <div>
-                  <strong>Nara Institute of Science and Technology</strong>
-                  M.S. in Engineering
-                </div>
-              </div>
-              <div class="timeline-item">
-                <time>2023</time>
-                <div>
-                  <strong>Tokyo University of Science</strong>
-                  B.S. in Electrical Engineering
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="timeline-card" data-reveal>
-            <h3>Research Experience</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <time>Apr 2026 - May 2026</time>
-                <div>
-                  <strong>MBZUAI</strong>
-                  Visiting Student
-                </div>
-              </div>
-              <div class="timeline-item">
-                <time>2024 - 2026</time>
-                <div>
-                  <strong>CyberAgent AI Lab</strong>
-                  Research Intern
-                </div>
-              </div>
-              <div class="timeline-item">
-                <time>2023 - 2026</time>
-                <div>
-                  <strong>ATR</strong>
-                  Research Assistant
-                </div>
-              </div>
-              <div class="timeline-item">
-                <time>2025 - 2026</time>
-                <div>
-                  <strong>JST SPRING Fellowship</strong>
-                  Doctoral fellowship
-                </div>
-              </div>
-            </div>
-          </article>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <div class="shell contact-grid">
-        <article class="contact-card" data-reveal>
-          <h3>Contact</h3>
-          <p>
-            For research discussions or collaboration, email is the best way to reach me.
-          </p>
-          <div class="contact-list">
-            <div class="contact-line">
-              <span class="contact-label">Email</span>
-              <a class="card-link" href="mailto:y.ichihara3406@gmail.com">y.ichihara3406@gmail.com</a>
-            </div>
-            <div class="contact-line">
-              <span class="contact-label">GitHub</span>
-              <a class="card-link" href="https://github.com/yu-ki3406" target="_blank" rel="noopener">github.com/yu-ki3406</a>
-            </div>
-            <div class="contact-line">
-              <span class="contact-label">Scholar</span>
-              <a class="card-link" href="https://scholar.google.com/citations?user=qexbctUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-            </div>
-          </div>
-        </article>
-
-        <aside class="contact-card" data-reveal>
-          <h3>About this site</h3>
-          <p>
-            A small static homepage for publications and contact information.
-          </p>
-          <p class="mono">Last refresh: 2026-04</p>
-        </aside>
-      </div>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        For research discussions or collaboration, email is the best way to reach me.
+      </p>
+      <p class="link-row">
+        <a href="mailto:y.ichihara3406@gmail.com">y.ichihara3406@gmail.com</a>
+        <a href="https://github.com/yu-ki3406" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=qexbctUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      </p>
     </section>
   </main>
 
   <footer class="site-footer shell">
-    <small>&copy; 2026 Yuki Ichihara.</small>
+    <small>&copy; 2026 Yuki Ichihara</small>
   </footer>
-
-  <script src="site.js"></script>
 </body>
 </html>
