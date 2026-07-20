@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="A guide to how MO-GRPO balances multiple rewards through variance-based normalization."
+  />
+  <meta name="author" content="Yuki Ichihara" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>How MO-GRPO Balances Multiple Rewards | Yuki Ichihara</title>
+  <link rel="stylesheet" href="../site.css" />
+  <meta property="og:title" content="How MO-GRPO Balances Multiple Rewards" />
+  <meta
+    property="og:description"
+    content="A guide to the motivation, normalization method, and evaluation of MO-GRPO."
+  />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-row">
+      <a class="site-title" href="../index.en.html">Yuki Ichihara</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.en.html#research">Research</a>
+        <a href="../index.en.html#publications">Publications</a>
+        <a href="../index.en.html#updates">Updates</a>
+        <a href="../index.en.html#background">Background</a>
+        <a href="index.html">Paper Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-shell">
+    <article class="article-card">
+      <a class="article-back" href="index.html">Back to paper guides</a>
+      <h1>How MO-GRPO Balances Multiple Rewards</h1>
+      <div class="meta-list">
+        <span>TACL 2026</span>
+        <span>Multi-objective alignment</span>
+        <span>GRPO</span>
+      </div>
+      <p>
+        Guide to
+        <a href="https://arxiv.org/abs/2509.22047" target="_blank" rel="noopener">
+          MO-GRPO: Mitigating Reward Hacking of Group Relative Policy Optimization on
+          Multi-Objective Problems</a>.
+      </p>
+
+      <p>
+        Language-model alignment often involves several objectives at once. A response may need
+        to be helpful, safe, stylistically appropriate, and faithful to a source. Standard GRPO
+        can optimize a combined reward, but the relative scales and variances of the individual
+        rewards affect how strongly they influence the update.
+      </p>
+
+      <h2>The failure mode</h2>
+      <p>
+        In a multi-objective setting, improving the aggregate reward does not guarantee balanced
+        progress. GRPO can favor one reward component while sacrificing others—an instance of
+        reward hacking identified in our analysis. Manually tuning reward scales is possible,
+        but it is task-dependent and can become brittle as training changes the reward distribution.
+      </p>
+
+      <h2>The MO-GRPO idea</h2>
+      <p>
+        MO-GRPO normalizes the reward functions according to the variances of their observed
+        values. This automatically reweights their contributions to the loss while preserving
+        the preference order induced by each reward. The analysis shows that the normalized
+        components contribute evenly, removing the need to hand-tune their scales.
+      </p>
+
+      <figure class="publication-figure">
+        <img
+          src="../images/research/mo-grpo.png"
+          alt="Comparison of GRPO and MO-GRPO advantage functions when two rewards have different variances"
+          width="975"
+          height="450"
+        />
+        <figcaption>
+          Standard GRPO and MO-GRPO advantage functions when reward components have different variances.
+        </figcaption>
+      </figure>
+
+      <h2>Evaluation</h2>
+      <p>
+        The paper evaluates the method in four domains: multi-armed bandits, simulated control
+        with Mo-Gymnasium, WMT machine translation for English–Japanese and English–Chinese,
+        and instruction following. Across these settings, MO-GRPO distributes learning signals
+        more evenly across reward components and achieves more stable learning than standard GRPO.
+      </p>
+
+      <h2>Independent evidence from GDPO on mathematical reasoning</h2>
+      <p>
+        Subsequent work on
+        <a href="https://arxiv.org/abs/2601.05242" target="_blank" rel="noopener">GDPO</a>
+        independently studies a closely related design: normalizing each reward within a group
+        before aggregating the resulting advantages. GDPO evaluates this principle on mathematical
+        reasoning with competing correctness and response-length objectives, and reports better
+        accuracy&ndash;length trade-offs than standard GRPO across multiple math benchmarks.
+      </p>
+      <p>
+        Although GDPO includes an additional batch-wise normalization step and is not a direct
+        reproduction of MO-GRPO, its results provide further empirical evidence that the core
+        per-reward normalization principle behind our method is effective beyond our original
+        evaluation domains, including mathematical reasoning tasks.
+      </p>
+
+      <h2>Takeaway</h2>
+      <p>
+        The contribution is deliberately simple: normalize each objective using information
+        already present in the sampled reward values. This targets a specific source of imbalance
+        in multi-objective GRPO without introducing manual reward-scale tuning.
+      </p>
+
+      <p class="article-source">
+        For the derivation, assumptions, experiments, and ablations, see the
+        <a href="https://arxiv.org/abs/2509.22047" target="_blank" rel="noopener">paper</a>
+        and <a href="https://github.com/CyberAgentAILab/MO-GRPO" target="_blank" rel="noopener">code</a>.
+        For the related mathematical-reasoning evidence, see the
+        <a href="https://arxiv.org/abs/2601.05242" target="_blank" rel="noopener">GDPO paper</a>.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer shell">
+    <small>&copy; 2026 Yuki Ichihara</small>
+    <small><a href="index.html">More Paper Guides</a></small>
+  </footer>
+</body>
+</html>

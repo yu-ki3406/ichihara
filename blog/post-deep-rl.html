@@ -3,113 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="A short note on sample efficiency and implementation details in deep reinforcement learning."
-  />
-  <title>Deep Reinforcement Learning Tips | Yuki Ichihara</title>
-  <link rel="stylesheet" href="../site.css" />
+  <meta http-equiv="refresh" content="0; url=post-mo-grpo.html" />
+  <meta name="robots" content="noindex" />
+  <title>Paper Guide | Yuki Ichihara</title>
+  <link rel="canonical" href="post-mo-grpo.html" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="shell header-row">
-      <a class="site-title" href="../index.en.html">Yuki Ichihara</a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="../index.en.html#news">News</a>
-        <a href="../index.en.html#publications">Publications</a>
-        <a href="../index.en.html#background">Background</a>
-        <a href="../index.en.html#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="article-shell">
-    <article class="article-card">
-      <a class="article-back" href="index.html">Back to notes</a>
-      <h1>Deep Reinforcement Learning Tips</h1>
-      <div class="meta-list">
-        <span>2025-04-10</span>
-        <span>Sample efficiency</span>
-        <span>Practical RL</span>
-      </div>
-      <p>
-        A short note on implementation details and diagnostics that matter in reinforcement
-        learning experiments.
-      </p>
-
-      <p>
-        Deep RL often looks unstable not because the main idea is wrong, but because several
-        small implementation choices push training in the wrong direction. These are a few
-        habits I return to when a run feels noisy, expensive, or hard to trust.
-      </p>
-
-      <h2>1. Treat data collection as part of the algorithm</h2>
-      <p>
-        People often focus on the policy update and forget that sample collection defines the
-        regime you are learning from. If your trajectories are narrow, stale, or biased by
-        early policy mistakes, no optimizer will rescue the run.
-      </p>
-
-      <pre><code>def collect_rollouts(env, policy, replay_buffer, steps):
-    state, _ = env.reset()
-
-    for _ in range(steps):
-        action = policy.sample_action(state)
-        next_state, reward, terminated, truncated, _ = env.step(action)
-
-        replay_buffer.add(state, action, reward, next_state, terminated or truncated)
-        state = next_state
-
-        if terminated or truncated:
-            state, _ = env.reset()</code></pre>
-
-      <p>
-        The key is not the loop itself. It is the discipline around reset logic, terminal
-        handling, and the freshness of the data you keep in the buffer.
-      </p>
-
-      <h2>2. Watch the ratio between exploration and optimization</h2>
-      <p>
-        Aggressive updates on a narrow stream of data create an illusion of progress. If the
-        agent improves only on yesterday's narrow behavior distribution, you are optimizing a
-        moving mirage.
-      </p>
-
-      <ul>
-        <li>Increase exploration when policy entropy collapses too early.</li>
-        <li>Reduce update frequency if value estimates start drifting.</li>
-        <li>Log coverage statistics, not just reward curves.</li>
-      </ul>
-
-      <h2>3. Prefer diagnostics that explain failure modes</h2>
-      <p>
-        Average return is necessary but not sufficient. I usually want at least one diagnostic
-        for distribution shift, one for catastrophic episodes, and one for instability in the
-        critic or preference model.
-      </p>
-
-      <p>
-        That matters even more when RL is used inside language model alignment. The policy can
-        look better on aggregate while learning a shortcut that later becomes reward hacking.
-      </p>
-
-      <h2>4. Keep baselines embarrassingly strong</h2>
-      <p>
-        If a simple actor-critic baseline or a lightweight decoding trick beats your more
-        elaborate setup, that is good news. It tells you where the real gains are and where the
-        story is mostly complexity.
-      </p>
-
-      <p>
-        In my experience, the most useful RL experiments are not the ones with the highest
-        reward curve. They are the ones where you can explain which parts of the pipeline were
-        actually responsible for the improvement.
-      </p>
-    </article>
-  </main>
-
-  <footer class="site-footer shell">
-    <small>&copy; 2026 Yuki Ichihara</small>
-  </footer>
+  <p><a href="post-mo-grpo.html">Continue to the MO-GRPO paper guide</a>.</p>
 </body>
 </html>

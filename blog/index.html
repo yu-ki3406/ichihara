@@ -5,49 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Research notes by Yuki Ichihara on language model alignment, decoding, and reinforcement learning."
+    content="Plain-language guides to selected papers by Yuki Ichihara on language model decoding and multi-objective alignment."
   />
-  <title>Notes | Yuki Ichihara</title>
+  <meta name="author" content="Yuki Ichihara" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Paper Guides | Yuki Ichihara</title>
   <link rel="stylesheet" href="../site.css" />
+  <meta property="og:title" content="Paper Guides | Yuki Ichihara" />
+  <meta
+    property="og:description"
+    content="Plain-language guides to selected papers on MBR decoding and multi-objective GRPO."
+  />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
 </head>
 <body>
   <header class="site-header">
     <div class="shell header-row">
       <a class="site-title" href="../index.en.html">Yuki Ichihara</a>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="../index.en.html#news">News</a>
+        <a href="../index.en.html#research">Research</a>
         <a href="../index.en.html#publications">Publications</a>
+        <a href="../index.en.html#updates">Updates</a>
         <a href="../index.en.html#background">Background</a>
-        <a href="../index.en.html#contact">Contact</a>
+        <a href="index.html" aria-current="page">Paper Guides</a>
       </nav>
     </div>
   </header>
 
   <main class="shell">
-    <section class="intro">
-      <div>
-        <h1>Notes</h1>
-        <p>Short notes on alignment, decoding, and reinforcement learning.</p>
-      </div>
+    <section class="notes-intro">
+      <p class="intro-role">Paper Guides</p>
+      <h1>Selected research, explained</h1>
+      <p class="notes-lede">
+        Brief overviews of two of my papers. Each guide focuses on the research question,
+        the main result, and why it matters; the linked paper contains the complete analysis.
+      </p>
     </section>
 
     <section>
-      <h2>Latest Posts</h2>
-      <div class="dated-list">
-        <p>
-          <time>Apr 10, 2025</time>
-          <a href="post-deep-rl.html">Deep Reinforcement Learning Tips</a>
-        </p>
-        <p>
-          <time>Mar 15, 2025</time>
-          <a href="post-mbr.html">MBR Decoding Explained</a>
-        </p>
+      <h2>Guides</h2>
+      <div class="note-list">
+        <article class="note-card">
+          <p class="note-label">TACL 2026</p>
+          <div>
+            <h3><a href="post-mo-grpo.html">How MO-GRPO Balances Multiple Rewards</a></h3>
+            <p>
+              Why standard GRPO can favor one objective, and how variance-based reward
+              normalization makes the objectives contribute more evenly, with related evidence
+              from GDPO on mathematical reasoning.
+            </p>
+          </div>
+        </article>
+        <article class="note-card">
+          <p class="note-label">ACL 2025</p>
+          <div>
+            <h3><a href="post-mbr.html">What Our MBR Decoding Guarantee Says</a></h3>
+            <p>
+              A guide to the finite-sample convergence result for Minimum Bayes Risk decoding
+              and its comparison with MAP decoding.
+            </p>
+          </div>
+        </article>
       </div>
     </section>
   </main>
 
   <footer class="site-footer shell">
     <small>&copy; 2026 Yuki Ichihara</small>
+    <small><a href="../index.en.html">Academic Homepage</a></small>
   </footer>
 </body>
 </html>

@@ -5,8 +5,9 @@ Small static academic homepage.
 ## Files
 
 - `index.en.html`: main homepage
-- `blog/`: short research notes
-- `images/`: profile image
+- `index.html`: root redirect to the English homepage
+- `blog/`: guides to selected papers
+- `images/`: profile and publication images
 - `site.css`: shared styles
 
 ## Local Preview
@@ -15,4 +16,4 @@ Small static academic homepage.
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000/index.en.html`.
+Then open `http://localhost:8000/`.

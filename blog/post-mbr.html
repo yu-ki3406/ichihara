@@ -5,124 +5,111 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="A practical explanation of Minimum Bayes Risk decoding and why it matters for language model inference."
+    content="A guide to the main convergence result in Theoretical Guarantees for Minimum Bayes Risk Decoding."
   />
-  <title>MBR Decoding Explained | Yuki Ichihara</title>
+  <meta name="author" content="Yuki Ichihara" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>What Our MBR Decoding Guarantee Says | Yuki Ichihara</title>
   <link rel="stylesheet" href="../site.css" />
+  <meta property="og:title" content="What Our MBR Decoding Guarantee Says" />
+  <meta
+    property="og:description"
+    content="A guide to the finite-sample convergence result for MBR decoding and its comparison with MAP decoding."
+  />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
 </head>
 <body>
   <header class="site-header">
     <div class="shell header-row">
       <a class="site-title" href="../index.en.html">Yuki Ichihara</a>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="../index.en.html#news">News</a>
+        <a href="../index.en.html#research">Research</a>
         <a href="../index.en.html#publications">Publications</a>
+        <a href="../index.en.html#updates">Updates</a>
         <a href="../index.en.html#background">Background</a>
-        <a href="../index.en.html#contact">Contact</a>
+        <a href="index.html">Paper Guides</a>
       </nav>
     </div>
   </header>
 
   <main class="article-shell">
     <article class="article-card">
-      <a class="article-back" href="index.html">Back to notes</a>
-      <h1>MBR Decoding Explained</h1>
+      <a class="article-back" href="index.html">Back to paper guides</a>
+      <h1>What Our MBR Decoding Guarantee Says</h1>
       <div class="meta-list">
-        <span>2025-03-15</span>
-        <span>Minimum Bayes Risk</span>
-        <span>Language model inference</span>
+        <span>ACL 2025</span>
+        <span>Minimum Bayes Risk decoding</span>
+        <span>Theory</span>
       </div>
       <p>
-        Companion note to
+        Guide to
         <a href="https://aclanthology.org/2025.acl-long.793/" target="_blank" rel="noopener">
           Theoretical Guarantees for Minimum Bayes Risk Decoding
         </a>.
       </p>
 
       <p>
-        Minimum Bayes Risk (MBR) decoding replaces the single highest-probability candidate
-        with the candidate that performs best under an expected utility criterion. In simpler
-        terms, it asks which output still looks good when compared against a set of alternatives.
+        Minimum Bayes Risk (MBR) decoding selects an output by maximizing expected utility
+        under a target distribution. In practice, that expectation is estimated using a finite
+        reference set sampled from a language model. Our paper studies how close this finite-sample
+        decision is to the ideal MBR decision.
       </p>
 
-      <h2>The core idea</h2>
+      <h2>The question</h2>
       <p>
-        Given candidate outputs <span class="mono">y_1, ..., y_n</span>, MBR chooses the one
-        with the largest average utility against a reference set. A rough implementation looks
-        like this:
+        Empirically, MBR tends to improve as the reference set grows. The central theoretical
+        question is whether we can quantify that improvement even though the set of possible
+        language outputs is vastly larger than the sampled reference set.
       </p>
 
-      <pre><code>def mbr_decode(candidates, utility):
-    best_score = float("-inf")
-    best_candidate = None
-
-    for candidate in candidates:
-        score = 0.0
-        for reference in candidates:
-            score += utility(candidate, reference)
-
-        if score > best_score:
-            best_score = score
-            best_candidate = candidate
-
-    return best_candidate</code></pre>
-
+      <h2>The main result</h2>
       <p>
-        The real decisions are hidden in <span class="mono">candidates</span> and
-        <span class="mono">utility</span>. Candidate quality depends on how you sample, while
-        the utility function encodes what "good" means. BLEU-style overlap, model-based
-        metrics, and learned judges all lead to very different behaviors.
+        Under the assumptions stated in the paper, MBR decoding approaches the optimal solution
+        with high probability at a rate of <span class="mono">O(n<sup>&minus;1/2</sup>)</span>,
+        where <span class="mono">n</span> is the size of the reference hypothesis set. The bound
+        does not scale directly with the total number of possible language outputs.
       </p>
 
-      <h2>Why it matters</h2>
+      <figure class="publication-figure publication-figure-narrow">
+        <img
+          src="../images/research/mbr.png"
+          alt="Conceptual comparison of regret bounds for MAP and MBR decoding"
+          width="600"
+          height="420"
+        />
+        <figcaption>
+          Comparison of regimes in which the derived regret bound is smaller for MBR or MAP decoding.
+        </figcaption>
+      </figure>
+
+      <h2>Comparison with MAP decoding</h2>
       <p>
-        MBR often works well because it rewards candidates that are centrally located with
-        respect to the candidate set. This is especially helpful when the highest-probability
-        sample is brittle, overly generic, or locally attractive but globally poor.
+        The paper also derives a performance gap for maximum-a-posteriori (MAP) decoding within
+        the same framework. The comparison identifies several cases in which the MBR bound
+        converges faster than the MAP bound. This provides a theoretical explanation for part of
+        the empirical advantage previously observed for MBR.
       </p>
 
-      <ul>
-        <li>It can reduce unlucky single-sample failures at inference time.</li>
-        <li>It makes test-time compute explicit instead of hiding it inside larger models.</li>
-        <li>It gives a clean lens on how utility design shapes final outputs.</li>
-      </ul>
-
-      <h2>Where the cost comes from</h2>
+      <h2>What the result does—and does not—say</h2>
       <p>
-        The downside is computation. If you compare every candidate against every other
-        candidate, the cost grows quadratically with the set size. In practice, you often need
-        to balance three knobs:
+        The result quantifies how reference-set size affects the finite-sample MBR decision under
+        explicit assumptions. It does not say that every utility function or sampling distribution
+        will work equally well. Those choices still determine which notion of output quality is
+        being optimized and how closely the practical setup matches the theory.
       </p>
 
-      <ol>
-        <li>The number of candidates you draw.</li>
-        <li>The quality and cost of the utility metric.</li>
-        <li>The latency budget you can tolerate at deployment time.</li>
-      </ol>
-
-      <p>
-        This is exactly why theoretical analysis matters. It tells us whether increasing the
-        candidate pool is buying real improvement or just burning more inference budget.
-      </p>
-
-      <h2>A useful mental model</h2>
-      <p>
-        I like to think of MBR as turning inference into a committee decision. MAP decoding
-        picks the most likely speaker. MBR asks the entire room which candidate best agrees
-        with the collective structure induced by the utility function.
-      </p>
-
-      <p>
-        If you want the formal version of this story, see the ACL paper
+      <p class="article-source">
+        For the assumptions, theorem statements, proofs, and full MAP comparison, see the
         <a href="https://aclanthology.org/2025.acl-long.793/" target="_blank" rel="noopener">
-          Theoretical Guarantees for Minimum Bayes Risk Decoding
-        </a>.
+          ACL 2025 paper</a>.
       </p>
     </article>
   </main>
 
   <footer class="site-footer shell">
     <small>&copy; 2026 Yuki Ichihara</small>
+    <small><a href="index.html">More Paper Guides</a></small>
   </footer>
 </body>
 </html>

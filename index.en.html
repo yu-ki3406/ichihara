@@ -5,26 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Yuki Ichihara's academic homepage with publications, background, and contact information."
+    content="Yuki Ichihara researches reliable language model decoding, alignment, and reinforcement learning."
   />
+  <meta name="author" content="Yuki Ichihara" />
+  <meta name="theme-color" content="#ffffff" />
   <title>Yuki Ichihara</title>
   <link rel="stylesheet" href="site.css" />
   <meta property="og:title" content="Yuki Ichihara" />
   <meta
     property="og:description"
-    content="Academic homepage with publications on language model alignment, decoding, and reinforcement learning."
+    content="Research on reliable language model decoding, alignment, and reinforcement learning."
   />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Yuki Ichihara" />
+  <meta name="twitter:card" content="summary" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Yuki Ichihara",
+      "jobTitle": "Incoming Ph.D. Student",
+      "email": "mailto:y.ichihara3406@gmail.com",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Mohamed bin Zayed University of Artificial Intelligence",
+        "url": "https://mbzuai.ac.ae/"
+      },
+      "sameAs": [
+        "https://scholar.google.com/citations?user=qexbctUAAAAJ&hl=en",
+        "https://github.com/yu-ki3406"
+      ],
+      "knowsAbout": [
+        "Language model alignment",
+        "Minimum Bayes Risk decoding",
+        "Best-of-N sampling",
+        "Reinforcement learning"
+      ]
+    }
+  </script>
 </head>
 <body>
   <header class="site-header">
     <div class="shell header-row">
       <a class="site-title" href="index.en.html">Yuki Ichihara</a>
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#news">News</a>
+        <a href="#research">Research</a>
         <a href="#publications">Publications</a>
+        <a href="#updates">Updates</a>
         <a href="#background">Background</a>
-        <a href="#contact">Contact</a>
+        <a href="blog/index.html">Paper Guides</a>
       </nav>
     </div>
   </header>
@@ -33,41 +62,82 @@
     <section class="intro">
       <div>
         <h1>Yuki Ichihara</h1>
-        <p>
-          Starting in Aug 2026, I will join MBZUAI as a Ph.D. student,
-          supervised by Junpei Komiyama.
+        <p class="intro-role">Incoming Ph.D. student at MBZUAI</p>
+        <p class="intro-lede">
+          Starting in Aug 2026, I will join
+          <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener">MBZUAI</a>,
+          supervised by
+          <a href="https://mbzuai.ac.ae/study/faculty/junpei-komiyama/" target="_blank" rel="noopener">Junpei Komiyama</a>.
         </p>
         <p>
-          My interests include Best-of-N and Minimum Bayes Risk decoding,
-          language model alignment, and RL-based fine-tuning methods.
+          I study how to make language-model generation more reliable and efficient,
+          from decoding algorithms and statistical guarantees to reinforcement-learning
+          methods for multi-objective alignment.
         </p>
         <p class="link-row">
           <a href="mailto:y.ichihara3406@gmail.com">Email</a>
-          <a href="https://scholar.google.com/citations?user=qexbctUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://scholar.google.com/citations?user=qexbctUAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
           <a href="https://github.com/yu-ki3406" target="_blank" rel="noopener">GitHub</a>
+          <a href="blog/index.html">Paper Guides</a>
         </p>
       </div>
       <img class="portrait" src="images/cat.JPG" alt="Profile photo" />
     </section>
 
-    <section id="news">
-      <h2>News</h2>
-      <div class="dated-list">
+    <section id="research">
+      <div class="section-heading">
+        <h2>Research</h2>
         <p>
-          <time>Aug 2026</time>
-          I will join MBZUAI as a Ph.D. student, supervised by Junpei Komiyama.
+          My work connects decoding, statistical reliability, and reinforcement learning
+          to build language models that optimize what we actually care about.
         </p>
-        <p>
-          <time>Jul 2026</time>
-          MO-GRPO was accepted to TACL.
-        </p>
+      </div>
+      <div class="research-grid">
+        <article class="research-card">
+          <span class="research-number">01</span>
+          <h3>Reliable Decoding</h3>
+          <p>
+            I study Best-of-N and Minimum Bayes Risk decoding, including when these methods
+            work, how quickly they converge, and how to make them robust to imperfect rewards.
+          </p>
+          <p class="research-links">
+            <a href="#pub-mbr">MBR guarantees</a>
+            <a href="#pub-best-of-n">Best-of-N</a>
+          </p>
+        </article>
+        <article class="research-card">
+          <span class="research-number">02</span>
+          <h3>Multi-Objective Alignment</h3>
+          <p>
+            I develop reinforcement-learning methods that balance multiple rewards and
+            constraints while reducing reward hacking and manual weight tuning.
+          </p>
+          <p class="research-links">
+            <a href="#pub-mo-grpo">MO-GRPO</a>
+            <a href="#pub-aw-grpo">AW-GRPO</a>
+            <a href="#pub-cmdp">Constrained RL</a>
+          </p>
+        </article>
+        <article class="research-card">
+          <span class="research-number">03</span>
+          <h3>Efficient and Trustworthy Reasoning</h3>
+          <p>
+            I explore statistical signals and training objectives that make self-consistency
+            and reasoning more reliable without unnecessary inference-time computation.
+          </p>
+          <p class="research-links">
+            <a href="#pub-prefix">Prefix consistency</a>
+            <a href="#pub-cite">CITE</a>
+            <a href="#pub-consensus">C-GRPO</a>
+          </p>
+        </article>
       </div>
     </section>
 
     <section id="publications">
       <h2>Publications</h2>
       <ol class="publication-list">
-        <li>
+        <li id="pub-prefix">
           <span class="publication-title">
             Reliable Chain-of-Thought via Prefix Consistency
           </span>
@@ -79,8 +149,29 @@
             <a href="https://arxiv.org/abs/2605.07654" target="_blank" rel="noopener">Paper</a>
             <a href="https://github.com/naoto-iwase/prefix-consistency" target="_blank" rel="noopener">Code</a>
           </span>
+          <details class="publication-details">
+            <summary>Summary &amp; figure</summary>
+            <p>
+              Prefix consistency estimates the reliability of a chain-of-thought by truncating it
+              and checking whether regenerated continuations recover the same answer. Across
+              reasoning models and benchmarks, it predicts correctness well and reaches standard
+              majority-voting accuracy with substantially fewer tokens.
+            </p>
+            <figure class="publication-figure">
+              <img
+                src="images/research/prefix-consistency.png"
+                alt="Prefix consistency accuracy curves and examples of consistent and inconsistent reasoning traces"
+                width="1020"
+                height="600"
+                loading="lazy"
+              />
+              <figcaption>
+                Figure 1. Prefix-consistency-weighted majority voting and the regeneration-based reliability signal.
+              </figcaption>
+            </figure>
+          </details>
         </li>
-        <li>
+        <li id="pub-cite">
           <span class="publication-title">
             CITE: Anytime-Valid Statistical Inference in LLM Self-Consistency
           </span>
@@ -91,8 +182,28 @@
           <span class="publication-links">
             <a href="https://arxiv.org/abs/2605.05873" target="_blank" rel="noopener">Paper</a>
           </span>
+          <details class="publication-details">
+            <summary>Summary &amp; figure</summary>
+            <p>
+              CITE provides anytime-valid statistical certification that a target response is the
+              unique mode of an LLM's answer distribution. It controls false certification under
+              adaptive stopping without assuming a fixed or known set of possible answers.
+            </p>
+            <figure class="publication-figure">
+              <img
+                src="images/research/cite.png"
+                alt="Diagram of the CITE stopping rule comparing a target response with observed and unseen categories"
+                width="1005"
+                height="382"
+                loading="lazy"
+              />
+              <figcaption>
+                Figure 1. CITE's anytime-valid stopping rule for certifying a target response.
+              </figcaption>
+            </figure>
+          </details>
         </li>
-        <li>
+        <li id="pub-consensus">
           <span class="publication-title">
             Consensus Group Relative Policy Optimization for Text Generation
           </span>
@@ -104,8 +215,28 @@
             <a href="https://arxiv.org/abs/2602.03102" target="_blank" rel="noopener">Paper</a>
             <a href="https://github.com/CyberAgentAILab/Consensus-GRPO" target="_blank" rel="noopener">Code</a>
           </span>
+          <details class="publication-details">
+            <summary>Summary &amp; figure</summary>
+            <p>
+              C-GRPO distills Minimum Bayes Risk decoding into GRPO training using only a
+              utility function and policy-generated samples. It achieves performance comparable
+              to MBR decoding in translation and summarization without its inference-time overhead.
+            </p>
+            <figure class="publication-figure">
+              <img
+                src="images/research/consensus-grpo.png"
+                alt="Comparison of standard GRPO and Consensus-GRPO training pipelines"
+                width="1230"
+                height="510"
+                loading="lazy"
+              />
+              <figcaption>
+                Figure 1. Standard GRPO and the label-free consensus utility used by C-GRPO.
+              </figcaption>
+            </figure>
+          </details>
         </li>
-        <li>
+        <li id="pub-mo-grpo">
           <span class="publication-title">
             MO-GRPO: Mitigating Reward Hacking of Group Relative Policy Optimization on Multi-Objective Problems
           </span>
@@ -116,9 +247,30 @@
           <span class="publication-links">
             <a href="https://doi.org/10.48550/arXiv.2509.22047" target="_blank" rel="noopener">Paper</a>
             <a href="https://github.com/CyberAgentAILab/MO-GRPO" target="_blank" rel="noopener">Code</a>
+            <a href="blog/post-mo-grpo.html">Guide</a>
           </span>
+          <details class="publication-details">
+            <summary>Summary &amp; figure</summary>
+            <p>
+              MO-GRPO addresses reward hacking in multi-objective GRPO by automatically
+              normalizing rewards according to their variance. It balances objectives without
+              manual scale tuning and delivers more stable learning across control and text-generation tasks.
+            </p>
+            <figure class="publication-figure">
+              <img
+                src="images/research/mo-grpo.png"
+                alt="Comparison of GRPO and MO-GRPO advantage functions for two rewards with different variances"
+                width="975"
+                height="450"
+                loading="lazy"
+              />
+              <figcaption>
+                Figure 1. GRPO and MO-GRPO advantage functions when reward scales differ.
+              </figcaption>
+            </figure>
+          </details>
         </li>
-        <li>
+        <li id="pub-aw-grpo">
           <span class="publication-title">
             Auto-Weighted Group Relative Preference Optimization for Multi-Objective Text Generation Tasks
           </span>
@@ -130,8 +282,28 @@
             <a href="https://aclanthology.org/2025.emnlp-industry.80/" target="_blank" rel="noopener">Paper</a>
             <a href="https://github.com/CyberAgentAILab/AW-GRPO" target="_blank" rel="noopener">Code</a>
           </span>
+          <details class="publication-details">
+            <summary>Summary &amp; figure</summary>
+            <p>
+              AW-GRPO automatically adjusts multiple reward weights according to each objective's
+              learning progress. On advertising text generation and public benchmarks, it improves
+              the balance among objectives while reducing constraint violations.
+            </p>
+            <figure class="publication-figure publication-figure-narrow">
+              <img
+                src="images/research/aw-grpo.png"
+                alt="Training curves showing GRPO improving readability while reducing BLEURT score"
+                width="570"
+                height="375"
+                loading="lazy"
+              />
+              <figcaption>
+                Figure 1. Standard GRPO overfits one reward on WMT En-Ja, motivating automatic weighting.
+              </figcaption>
+            </figure>
+          </details>
         </li>
-        <li>
+        <li id="pub-mbr">
           <span class="publication-title">
             Theoretical Guarantees for Minimum Bayes Risk Decoding
           </span>
@@ -141,9 +313,30 @@
           </span>
           <span class="publication-links">
             <a href="https://aclanthology.org/2025.acl-long.793/" target="_blank" rel="noopener">Paper</a>
+            <a href="blog/post-mbr.html">Guide</a>
           </span>
+          <details class="publication-details">
+            <summary>Summary &amp; figure</summary>
+            <p>
+              This work provides finite-sample guarantees showing that MBR decoding approaches
+              the optimal solution at a rate of O(n<sup>&minus;1/2</sup>) under stated assumptions.
+              It also explains why MBR can converge faster than MAP decoding in several cases.
+            </p>
+            <figure class="publication-figure publication-figure-narrow">
+              <img
+                src="images/research/mbr.png"
+                alt="Conceptual plot comparing the regret bounds of MAP and MBR decoding"
+                width="600"
+                height="420"
+                loading="lazy"
+              />
+              <figcaption>
+                Figure 1. Regimes in which the regret bound of MBR or MAP decoding is smaller.
+              </figcaption>
+            </figure>
+          </details>
         </li>
-        <li>
+        <li id="pub-best-of-n">
           <span class="publication-title">
             Evaluation of Best-of-N Sampling Strategies for Language Model Alignment
           </span>
@@ -154,8 +347,28 @@
           <span class="publication-links">
             <a href="https://doi.org/10.48550/arXiv.2502.12668" target="_blank" rel="noopener">Paper</a>
           </span>
+          <details class="publication-details">
+            <summary>Summary &amp; figure</summary>
+            <p>
+              This work studies regularized Best-of-N sampling as robust optimization against
+              errors in proxy rewards. It introduces Stochastic RBoN with theoretical guarantees
+              and shows how simple regularizers can reduce reward hacking on alignment benchmarks.
+            </p>
+            <figure class="publication-figure">
+              <img
+                src="images/research/best-of-n.png"
+                alt="Win-rate curves for regularized Best-of-N methods across five proxy reward models"
+                width="930"
+                height="560"
+                loading="lazy"
+              />
+              <figcaption>
+                Figure 1. Sensitivity of regularized Best-of-N methods to beta across proxy reward models.
+              </figcaption>
+            </figure>
+          </details>
         </li>
-        <li>
+        <li id="pub-cmdp">
           <span class="publication-title">
             A Policy Gradient Primal-Dual Algorithm for Constrained MDPs with Uniform PAC Guarantees
           </span>
@@ -167,24 +380,101 @@
           <span class="publication-links">
             <a href="https://arxiv.org/abs/2401.17780" target="_blank" rel="noopener">Paper</a>
           </span>
+          <details class="publication-details">
+            <summary>Summary &amp; figure</summary>
+            <p>
+              This work proposes a policy-gradient primal-dual algorithm for online constrained
+              MDPs with Uniform-PAC guarantees. It combines convergence to an optimal policy,
+              sublinear regret, and polynomial sample complexity while controlling constraint violations.
+            </p>
+            <figure class="publication-figure">
+              <img
+                src="images/research/cmdp.png"
+                alt="Optimality gap and constraint violation curves for primal-dual constrained MDP algorithms"
+                width="1170"
+                height="420"
+                loading="lazy"
+              />
+              <figcaption>
+                Figure 1. Optimality gap and constraint violation of primal-dual CMDP algorithms.
+              </figcaption>
+            </figure>
+          </details>
         </li>
       </ol>
     </section>
 
+    <section id="updates">
+      <div class="section-heading section-heading-compact">
+        <h2>Recent Updates</h2>
+        <p>Selected publication, service, and career updates.</p>
+      </div>
+      <div class="dated-list updates-list">
+        <p>
+          <time>Aug 2026</time>
+          <span>
+            I will join <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener">MBZUAI</a>
+            as a Ph.D. student, supervised by
+            <a href="https://mbzuai.ac.ae/study/faculty/junpei-komiyama/" target="_blank" rel="noopener">Junpei Komiyama</a>.
+          </span>
+        </p>
+        <p>
+          <time>Jul 2026</time>
+          <span><a href="#pub-mo-grpo">MO-GRPO</a> was accepted to TACL.</span>
+        </p>
+        <p>
+          <time>May 2026</time>
+          <span>
+            We released work on <a href="#pub-prefix">prefix consistency</a> and
+            anytime-valid inference with <a href="#pub-cite">CITE</a>.
+          </span>
+        </p>
+        <p>
+          <time>Feb 2026</time>
+          <span>
+            We released <a href="#pub-consensus">C-GRPO</a>, which distills
+            consensus-based decoding into training.
+          </span>
+        </p>
+        <p>
+          <time>Nov 2025</time>
+          <span><a href="#pub-aw-grpo">AW-GRPO</a> appeared at the EMNLP Industry Track.</span>
+        </p>
+        <p>
+          <time>Jul 2025</time>
+          <span>
+            Our work on <a href="#pub-mbr">theoretical guarantees for MBR decoding</a>
+            appeared at ACL.
+          </span>
+        </p>
+        <p>
+          <time>Feb 2025</time>
+          <span>
+            Our evaluation of <a href="#pub-best-of-n">Best-of-N sampling strategies</a>
+            was published in TMLR.
+          </span>
+        </p>
+      </div>
+    </section>
+
     <section id="background">
-      <h2>Background</h2>
+      <h2>Background &amp; Service</h2>
       <div class="two-column">
         <div>
           <h3>Education</h3>
           <div class="dated-list">
             <p>
               <time>Aug 2026 -</time>
-              MBZUAI, Ph.D. (incoming), supervised by Junpei Komiyama
+              <span>
+                <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener">MBZUAI</a>,
+                Ph.D. (incoming), supervised by
+                <a href="https://mbzuai.ac.ae/study/faculty/junpei-komiyama/" target="_blank" rel="noopener">Junpei Komiyama</a>
+              </span>
             </p>
             <p>
               <time>2025 - 2026</time>
               Nara Institute of Science and Technology, Ph.D. program in Engineering
-              (withdrew to re-enroll at MBZUAI)
+              (transferred to MBZUAI)
             </p>
             <p>
               <time>2025</time>
@@ -217,7 +507,7 @@
             </p>
           </div>
 
-          <h3>Reviewing</h3>
+          <h3>Academic Service</h3>
           <div class="dated-list">
             <p>
               <time>2026</time>
@@ -231,18 +521,15 @@
     <section id="contact">
       <h2>Contact</h2>
       <p>
-        For research discussions or collaboration, email is the best way to reach me.
-      </p>
-      <p class="link-row">
-        <a href="mailto:y.ichihara3406@gmail.com">y.ichihara3406@gmail.com</a>
-        <a href="https://github.com/yu-ki3406" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://scholar.google.com/citations?user=qexbctUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        For research discussions or collaboration, email me at
+        <a href="mailto:y.ichihara3406@gmail.com">y.ichihara3406@gmail.com</a>.
       </p>
     </section>
   </main>
 
   <footer class="site-footer shell">
     <small>&copy; 2026 Yuki Ichihara</small>
+    <small>Last updated July 2026 · <a href="blog/index.html">Paper Guides</a></small>
   </footer>
 </body>
 </html>
