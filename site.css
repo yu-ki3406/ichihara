@@ -279,6 +279,23 @@ time {
   color: var(--muted);
 }
 
+.venue-tag {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.35em;
+  padding: 0.05em 0.5em;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+  vertical-align: 0.08em;
+  white-space: nowrap;
+}
+
 .publication-list strong,
 .publication-title {
   color: var(--text);
@@ -396,6 +413,17 @@ time {
   margin-top: 30px;
 }
 
+.article-lede {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+html[lang="ja"] .article-card {
+  line-break: strict;
+  overflow-wrap: anywhere;
+}
+
 .article-card pre {
   overflow-x: auto;
   padding: 16px;
@@ -469,6 +497,55 @@ time {
   margin-top: 30px;
   padding-top: 18px;
   border-top: 1px solid var(--border);
+}
+
+.article-callout {
+  margin: 28px 0;
+  padding: 18px 20px;
+  color: var(--text);
+  background: var(--surface);
+  border-left: 3px solid var(--link);
+}
+
+.article-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.research-tempo {
+  overflow-x: auto;
+  margin: 24px 0;
+}
+
+.research-tempo table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.research-tempo caption {
+  margin-bottom: 8px;
+  color: var(--muted);
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.research-tempo th,
+.research-tempo td {
+  padding: 11px 12px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid var(--border);
+}
+
+.research-tempo thead th,
+.research-tempo tbody th {
+  background: var(--surface);
+}
+
+.research-tempo thead th {
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 700px) {

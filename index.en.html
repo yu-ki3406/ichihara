@@ -24,7 +24,7 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Yuki Ichihara",
-      "jobTitle": "Incoming Ph.D. Student",
+      "jobTitle": "Ph.D. Student",
       "email": "mailto:y.ichihara3406@gmail.com",
       "affiliation": {
         "@type": "CollegeOrUniversity",
@@ -62,9 +62,9 @@
     <section class="intro">
       <div>
         <h1>Yuki Ichihara</h1>
-        <p class="intro-role">Incoming Ph.D. student at MBZUAI</p>
+        <p class="intro-role">Ph.D. student at MBZUAI</p>
         <p class="intro-lede">
-          Starting in Aug 2026, I will join
+          I am a Ph.D. student at
           <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener">MBZUAI</a>,
           supervised by
           <a href="https://mbzuai.ac.ae/study/faculty/junpei-komiyama/" target="_blank" rel="noopener">Junpei Komiyama</a>.
@@ -126,6 +126,8 @@
             and reasoning more reliable without unnecessary inference-time computation.
           </p>
           <p class="research-links">
+            <a href="#pub-pdc">PDC</a>
+            <a href="#pub-op2sd">OP<sup>2</sup>SD</a>
             <a href="#pub-prefix">Prefix consistency</a>
             <a href="#pub-cite">CITE</a>
             <a href="#pub-consensus">C-GRPO</a>
@@ -137,13 +139,81 @@
     <section id="publications">
       <h2>Publications</h2>
       <ol class="publication-list">
+        <li id="pub-pdc">
+          <span class="publication-title">
+            Prefix-Denoising Consistency: Test-Time Verification for Diffusion Language Models
+          </span>
+          <span class="publication-meta">
+            <strong>Y. Ichihara</strong>, N. Iwase, M. A. Quamar, J. Komiyama.
+            <span class="venue-tag" title="arXiv preprint, 2026">arXiv 2026 · Preprint</span>
+          </span>
+          <span class="publication-links">
+            <a href="https://arxiv.org/abs/2608.25311" target="_blank" rel="noopener">Paper</a>
+          </span>
+          <details class="publication-details">
+            <summary>Summary &amp; figure</summary>
+            <p>
+              Prefix-Denoising Consistency (PDC) verifies diffusion-language-model outputs by
+              keeping different prefixes, remasking the remaining suffix, and regenerating
+              alternative reasoning trajectories. Across mathematical and commonsense reasoning
+              benchmarks, voting over these regenerations improves the initial answer while using
+              inference compute more effectively than independent full generations.
+            </p>
+            <figure class="publication-figure">
+              <img
+                src="images/research/prefix-denoising-consistency.png"
+                alt="Prefix-Denoising Consistency pipeline with three prefix keep rates, suffix regeneration, and majority voting"
+                width="1332"
+                height="374"
+                loading="lazy"
+              />
+              <figcaption>
+                Figure 1. PDC regenerates masked suffixes from several fixed prefixes and votes over the resulting answers.
+              </figcaption>
+            </figure>
+          </details>
+        </li>
+        <li id="pub-op2sd">
+          <span class="publication-title">
+            Privileged Solutions or Context-Induced Teacher Behavior? Dissecting On-Policy Self-Distillation
+          </span>
+          <span class="publication-meta">
+            <strong>Y. Ichihara</strong>, N. Iwase, M. A. Quamar, J. Komiyama.
+            <span class="venue-tag" title="arXiv preprint, 2026">arXiv 2026 · Preprint</span>
+          </span>
+          <span class="publication-links">
+            <a href="https://arxiv.org/abs/2608.09228" target="_blank" rel="noopener">Paper</a>
+            <a href="https://github.com/MBZUAI-reasoninglab/OP2SD" target="_blank" rel="noopener">Code</a>
+          </span>
+          <details class="publication-details">
+            <summary>Summary &amp; figure</summary>
+            <p>
+              OP<sup>2</sup>SD tests whether on-policy self-distillation truly requires the teacher
+              to see the target problem's solution. Replacing it with a worked solution from
+              another problem still improves the base model and remains competitive with OPSD,
+              showing that context-induced teacher behavior is an important part of the distilled signal.
+            </p>
+            <figure class="publication-figure">
+              <img
+                src="images/research/op2sd.png"
+                alt="Comparison of OPSD, whose teacher sees the target solution, and OP squared SD, whose teacher sees a worked solution to a different problem"
+                width="1332"
+                height="704"
+                loading="lazy"
+              />
+              <figcaption>
+                Figure 1. OPSD and OP<sup>2</sup>SD differ only in whether the teacher sees the target solution or another problem's solution.
+              </figcaption>
+            </figure>
+          </details>
+        </li>
         <li id="pub-prefix">
           <span class="publication-title">
             Reliable Chain-of-Thought via Prefix Consistency
           </span>
           <span class="publication-meta">
             N. Iwase, <strong>Y. Ichihara</strong>, M. A. Quamar, J. Komiyama.
-            <em>arXiv preprint</em>, 2026.
+            <span class="venue-tag" title="arXiv preprint, 2026">arXiv 2026 · Preprint</span>
           </span>
           <span class="publication-links">
             <a href="https://arxiv.org/abs/2605.07654" target="_blank" rel="noopener">Paper</a>
@@ -177,7 +247,7 @@
           </span>
           <span class="publication-meta">
             H. Ota, N. Iwase, <strong>Y. Ichihara</strong>, J. Komiyama, M. Imaizumi.
-            <em>arXiv preprint</em>, 2026.
+            <span class="venue-tag" title="arXiv preprint, 2026">arXiv 2026 · Preprint</span>
           </span>
           <span class="publication-links">
             <a href="https://arxiv.org/abs/2605.05873" target="_blank" rel="noopener">Paper</a>
@@ -209,7 +279,7 @@
           </span>
           <span class="publication-meta">
             <strong>Y. Ichihara</strong>, Y. Jinnai, K. Ariu, E. Uchibe.
-            <em>Workshop at ACL</em>, 2026.
+            <span class="venue-tag" title="EMNLP 2026 Main Conference">EMNLP 2026 · Main</span>
           </span>
           <span class="publication-links">
             <a href="https://arxiv.org/abs/2602.03102" target="_blank" rel="noopener">Paper</a>
@@ -242,7 +312,7 @@
           </span>
           <span class="publication-meta">
             <strong>Y. Ichihara</strong>, Y. Jinnai, T. Morimura, M. Sakamoto, R. Mitsuhashi, E. Uchibe.
-            <em>TACL</em>, 2026.
+            <span class="venue-tag" title="Transactions of the Association for Computational Linguistics, 2026">TACL 2026 · Journal</span>
           </span>
           <span class="publication-links">
             <a href="https://doi.org/10.48550/arXiv.2509.22047" target="_blank" rel="noopener">Paper</a>
@@ -276,7 +346,7 @@
           </span>
           <span class="publication-meta">
             <strong>Y. Ichihara</strong>, Y. Jinnai.
-            <em>EMNLP Industry Track</em>, 2025.
+            <span class="venue-tag" title="EMNLP 2025 Industry Track">EMNLP 2025 · Industry</span>
           </span>
           <span class="publication-links">
             <a href="https://aclanthology.org/2025.emnlp-industry.80/" target="_blank" rel="noopener">Paper</a>
@@ -309,7 +379,7 @@
           </span>
           <span class="publication-meta">
             <strong>Y. Ichihara</strong>, Y. Jinnai, K. Ariu, T. Morimura, E. Uchibe.
-            <em>ACL</em>, 2025.
+            <span class="venue-tag" title="ACL 2025 Main Conference">ACL 2025 · Main</span>
           </span>
           <span class="publication-links">
             <a href="https://aclanthology.org/2025.acl-long.793/" target="_blank" rel="noopener">Paper</a>
@@ -342,7 +412,7 @@
           </span>
           <span class="publication-meta">
             <strong>Y. Ichihara</strong>, Y. Jinnai, T. Morimura, K. Abe, K. Ariu, M. Sakamoto, E. Uchibe.
-            <em>TMLR</em>, 2025.
+            <span class="venue-tag" title="Transactions on Machine Learning Research, 2025">TMLR 2025 · Journal</span>
           </span>
           <span class="publication-links">
             <a href="https://doi.org/10.48550/arXiv.2502.12668" target="_blank" rel="noopener">Paper</a>
@@ -375,7 +445,7 @@
           <span class="publication-meta">
             T. Kitamura, T. Kozuno, M. Kato, <strong>Y. Ichihara</strong>, S. Nishimori,
             A. Sannai, S. Sonoda, W. Kumagai, Y. Matsuo.
-            <em>RLSW</em>, 2024.
+            <span class="venue-tag" title="RLSW 2024 Workshop">RLSW 2024 · Workshop</span>
           </span>
           <span class="publication-links">
             <a href="https://arxiv.org/abs/2401.17780" target="_blank" rel="noopener">Paper</a>
@@ -413,7 +483,20 @@
         <p>
           <time>Aug 2026</time>
           <span>
-            I will join <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener">MBZUAI</a>
+            <a href="#pub-consensus">C-GRPO</a> was accepted to the EMNLP 2026 Main Conference.
+          </span>
+        </p>
+        <p>
+          <time>Aug 2026</time>
+          <span>
+            We released <a href="#pub-pdc">PDC</a> for diffusion-language-model verification and
+            <a href="#pub-op2sd">OP<sup>2</sup>SD</a> on context-induced teacher behavior in self-distillation.
+          </span>
+        </p>
+        <p>
+          <time>Aug 2026</time>
+          <span>
+            I joined <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener">MBZUAI</a>
             as a Ph.D. student, supervised by
             <a href="https://mbzuai.ac.ae/study/faculty/junpei-komiyama/" target="_blank" rel="noopener">Junpei Komiyama</a>.
           </span>
@@ -464,10 +547,10 @@
           <h3>Education</h3>
           <div class="dated-list">
             <p>
-              <time>Aug 2026 -</time>
+              <time>Aug 2026 - Present</time>
               <span>
                 <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener">MBZUAI</a>,
-                Ph.D. (incoming), supervised by
+                Ph.D. student, supervised by
                 <a href="https://mbzuai.ac.ae/study/faculty/junpei-komiyama/" target="_blank" rel="noopener">Junpei Komiyama</a>
               </span>
             </p>
@@ -529,7 +612,7 @@
 
   <footer class="site-footer shell">
     <small>&copy; 2026 Yuki Ichihara</small>
-    <small>Last updated July 2026 · <a href="blog/index.html">Paper Guides</a></small>
+    <small>Last updated August 2026 · <a href="blog/index.html">Paper Guides</a></small>
   </footer>
 </body>
 </html>
